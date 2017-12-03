@@ -1,0 +1,24 @@
+<RCC>
+    <qresource prefix="/title/close">
+        <file>close_default.png</file>
+        <file>close_hover.png</file>
+    </qresource>
+    <qresource prefix="/background/login">
+        <file>BG_1.jpg</file>
+    </qresource>
+    <qresource prefix="/title/collapse">
+        <file>collapse_default.png</file>
+        <file>collapse_hover.png</file>
+    </qresource>
+    <qresource prefix="/lineedit/bg">
+        <file>lineedit.png</file>
+    </qresource>
+    <qresource prefix="/icons/setting">
+        <file>setting_default.png</file>
+        <file>setting_hover.png</file>
+    </qresource>
+    <qresource prefix="/icons/button">
+        <file>Buttons_default.jpg</file>
+        <file>Buttons_hover.jpg</file>
+    </qresource>
+</RCC>
