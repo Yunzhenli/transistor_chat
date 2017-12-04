@@ -2,6 +2,13 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QWidget>
+#include <QMouseEvent>
+#include <QTcpSocket>
+#include <iostream>
+const int port = 1007;
+
+
 namespace Ui {
 class MainWindow;
 }
@@ -12,11 +19,14 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = 0);
+    void setAreaMovable(const QRect rt);
     ~MainWindow();
 
 protected:
     void mouseMoveEvent(QMouseEvent *event);
     void mousePressEvent(QMouseEvent *event);
+    void mouseReleaseEvent();
+    void send_userdata(const char* user_name,const char* pass_word);
 private slots:
     void on_close_clicked();
 
@@ -26,6 +36,9 @@ private slots:
 
     void on_login_clicked();
 private:
+    QRect m_areaMovable;
+    bool m_bPressed;
+    QPoint m_ptPress;
     Ui::MainWindow *ui;
 };
 
