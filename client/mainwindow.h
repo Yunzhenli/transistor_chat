@@ -7,8 +7,9 @@
 #include <QTcpSocket>
 #include <iostream>
 #include <QSystemTrayIcon>
+#include <QAction>
+#include <QMenu>
 const int port = 1007;
-
 
 namespace Ui {
 class MainWindow;
@@ -21,6 +22,9 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     void setAreaMovable(const QRect rt);
+    void create_Action();
+    void create_menu();
+
     ~MainWindow();
 
 protected:
@@ -39,6 +43,12 @@ private slots:
     void on_login_clicked();
 
     void on_activatedSysTrayIcon(QSystemTrayIcon::ActivationReason reason);
+
+    void _show_login_window();
+
+    void _exit_login_window();
+
+
 private:
     QRect m_areaMovable;
     bool m_bPressed;

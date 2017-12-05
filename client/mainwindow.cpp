@@ -11,8 +11,21 @@
 #include <QSystemTrayIcon>
 #include <QtGui>
 #include <QObject>
+/*
+ *
+ *Will Do:
+ * Context menu
+ * Too many tray icons
+ * double click
+ *
+*/
 int testnum = 0;
 QString user_name,pass_word;
+QSystemTrayIcon *login_winicon;
+QMenu * login_menu;
+QAction * show_login_action;
+QAction * exit_login_action;
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -71,17 +84,44 @@ void MainWindow::on_collapse_clicked()
     login_winicon->setIcon(icon);
     //login_winicon->setToolTip(QObject::trUtf8("Transistor Chat \n Design for geek"));
     connect(login_winicon,SIGNAL(activated(QSystemTrayIcon::ActivationReason)),this,SLOT(on_activatedSysTrayIcon(QSystemTrayIcon::ActivationReason)));
+    create_Action();
+    create_menu();
     login_winicon->show();
+}
+
+void MainWindow::create_Action()
+{
+    show_login_action = new QAction(QObject::trUtf8("Show Login Window"),this);
+    connect(show_login_action,SIGNAL(triggered()),this,SLOT(_show_login_window()));
+    exit_login_action = new QAction(QObject::trUtf8("Exit Aciton"),this);
+    connect(exit_login_action,SIGNAL(triggered()),this,SLOT(_exit_login_window()));
+}
+void MainWindow::create_menu()
+{
+    login_menu = new QMenu(this);
+    login_menu->addAction(show_login_action);
+    login_menu->addSeparator();
+    login_menu->addAction(exit_login_action);
+    login_winicon->setContextMenu(login_menu);
 }
 void MainWindow::on_activatedSysTrayIcon(QSystemTrayIcon::ActivationReason reason)
 {
     switch (reason) {
     case QSystemTrayIcon::Trigger:
         this->show();
+        //login_winicon->hide();
         break;
     default:
         break;
     }
+}
+void MainWindow::_show_login_window()
+{
+    this->show();
+}
+void MainWindow::_exit_login_window()
+{
+    exit(0);
 }
 void MainWindow::on_Sign_up_clicked()
 {

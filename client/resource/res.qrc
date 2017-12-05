@@ -5,6 +5,7 @@
     </qresource>
     <qresource prefix="/background/login">
         <file>BG_1.jpg</file>
+        <file>BG_2.jpg</file>
     </qresource>
     <qresource prefix="/title/collapse">
         <file>collapse_default.png</file>
