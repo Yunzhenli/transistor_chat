@@ -21,4 +21,7 @@
         <file>Buttons_default.jpg</file>
         <file>Buttons_hover.jpg</file>
     </qresource>
+    <qresource prefix="/logos">
+        <file>logo_default.png</file>
+    </qresource>
 </RCC>

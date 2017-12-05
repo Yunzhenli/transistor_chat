@@ -7,6 +7,10 @@
 #include <QDebug>
 #include <string>
 #include <QHostAddress>
+#include <QWidget>
+#include <QSystemTrayIcon>
+#include <QtGui>
+#include <QObject>
 int testnum = 0;
 QString user_name,pass_word;
 MainWindow::MainWindow(QWidget *parent) :
@@ -58,9 +62,27 @@ void MainWindow::on_close_clicked()
 
 void MainWindow::on_collapse_clicked()
 {
-    std::cout<<"debug_collapse"<<std::endl;
+    this->hide();
+    QSystemTrayIcon *login_winicon;
+    //delete login_winicon;
+    //TODO:toomany icons
+    login_winicon = new QSystemTrayIcon(this);
+    QIcon icon = QIcon("../client/resource/logo_default.png");
+    login_winicon->setIcon(icon);
+    //login_winicon->setToolTip(QObject::trUtf8("Transistor Chat \n Design for geek"));
+    connect(login_winicon,SIGNAL(activated(QSystemTrayIcon::ActivationReason)),this,SLOT(on_activatedSysTrayIcon(QSystemTrayIcon::ActivationReason)));
+    login_winicon->show();
 }
-
+void MainWindow::on_activatedSysTrayIcon(QSystemTrayIcon::ActivationReason reason)
+{
+    switch (reason) {
+    case QSystemTrayIcon::Trigger:
+        this->show();
+        break;
+    default:
+        break;
+    }
+}
 void MainWindow::on_Sign_up_clicked()
 {
     QDesktopServices::openUrl(QUrl(QLatin1String("http://transistor107.org")));

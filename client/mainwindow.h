@@ -6,6 +6,7 @@
 #include <QMouseEvent>
 #include <QTcpSocket>
 #include <iostream>
+#include <QSystemTrayIcon>
 const int port = 1007;
 
 
@@ -27,6 +28,7 @@ protected:
     void mousePressEvent(QMouseEvent *event);
     void mouseReleaseEvent();
     void send_userdata(const char* user_name,const char* pass_word);
+
 private slots:
     void on_close_clicked();
 
@@ -35,6 +37,8 @@ private slots:
     void on_Sign_up_clicked();
 
     void on_login_clicked();
+
+    void on_activatedSysTrayIcon(QSystemTrayIcon::ActivationReason reason);
 private:
     QRect m_areaMovable;
     bool m_bPressed;
