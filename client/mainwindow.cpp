@@ -25,13 +25,13 @@ QSystemTrayIcon *login_winicon;
 QMenu * login_menu;
 QAction * show_login_action;
 QAction * exit_login_action;
-
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     m_areaMovable = geometry();
     m_bPressed = false;
+    setWindowFlags(Qt::FramelessWindowHint);
     ui->setupUi(this);
     ui->password_Edit->setEchoMode(QLineEdit::PasswordEchoOnEdit);
 }
@@ -118,6 +118,7 @@ void MainWindow::on_activatedSysTrayIcon(QSystemTrayIcon::ActivationReason reaso
 void MainWindow::_show_login_window()
 {
     this->show();
+    resize(200,200);
 }
 void MainWindow::_exit_login_window()
 {
@@ -125,7 +126,9 @@ void MainWindow::_exit_login_window()
 }
 void MainWindow::on_Sign_up_clicked()
 {
-    QDesktopServices::openUrl(QUrl(QLatin1String("http://transistor107.org")));
+    custom_titles *title = new custom_titles(this);
+    //QDesktopServices::openUrl(QUrl(QLatin1String("http://transistor107.org")));
+    window1.show();
 }
 
 void MainWindow::on_login_clicked()

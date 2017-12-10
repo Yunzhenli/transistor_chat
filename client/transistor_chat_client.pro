@@ -27,14 +27,21 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    custom_windows.cpp \
+    custom_titles.cpp
 
 HEADERS += \
-        mainwindow.h
+    custom_windows.h \
+    custom_windows.h \
+    mainwindow.h \
+    custom_titles.h
 
 FORMS += \
         mainwindow.ui \
-    change_host.ui
+    change_host.ui \
+    custom_windows.ui \
+    custom_windows.ui
 
 RESOURCES += \
     resource/res.qrc

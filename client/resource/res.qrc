@@ -25,4 +25,10 @@
     <qresource prefix="/logos">
         <file>logo_default.png</file>
     </qresource>
+    <qresource prefix="/message_box/backgrond">
+        <file>BG_message_box.jpg</file>
+    </qresource>
+    <qresource prefix="/message_box/grap">
+        <file>error.png</file>
+    </qresource>
 </RCC>

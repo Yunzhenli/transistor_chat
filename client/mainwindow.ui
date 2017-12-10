@@ -62,7 +62,7 @@ QPushButton:pressed{border-image: url(:/title/close/close_hover.png);}  </string
      <rect>
       <x>555</x>
       <y>6</y>
-      <width>14</width>
+      <width>12</width>
       <height>15</height>
      </rect>
     </property>

@@ -9,6 +9,8 @@
 #include <QSystemTrayIcon>
 #include <QAction>
 #include <QMenu>
+#include <custom_windows.h>
+#include <custom_titles.h>
 const int port = 1007;
 
 namespace Ui {
@@ -53,6 +55,7 @@ private:
     QRect m_areaMovable;
     bool m_bPressed;
     QPoint m_ptPress;
+    custom_windows window1;
     Ui::MainWindow *ui;
 };
 
